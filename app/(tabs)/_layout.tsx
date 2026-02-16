@@ -1,33 +1,34 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Image}  from "expo-image";
+import { Tabs } from "expo-router";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
+const PlaceholderImGE = require("../assets/images/image1.jpg");
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: "#ede200ff",
+        headerStyle: { backgroundColor: "#4cd4f9ff" },
+        headerTintColor: "#1e9540ff",
+        tabBarStyle: { backgroundColor: "#f4f5f5ff" },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="about"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "About",
+        }}
+      />
+      <Tabs.Screen
+        name="not-found"
+        options={{
+          href: null,
+          title: "Not Found",
         }}
       />
     </Tabs>
