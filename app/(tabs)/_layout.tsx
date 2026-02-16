@@ -1,7 +1,6 @@
-import { Image}  from "expo-image";
+
 import { Tabs } from "expo-router";
 
-const PlaceholderImGE = require("../assets/images/image1.jpg");
 export default function TabLayout() {
   return (
     <Tabs
