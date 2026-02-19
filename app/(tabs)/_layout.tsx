@@ -1,6 +1,4 @@
-
 import { Tabs } from "expo-router";
-
 export default function TabLayout() {
   return (
     <Tabs
@@ -18,9 +16,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="calendar"
         options={{
-          title: "About",
+          title: "Calendar",
         }}
       />
       <Tabs.Screen

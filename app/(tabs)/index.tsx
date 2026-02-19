@@ -1,37 +1,29 @@
 import Button from "@/components/buttons";
-import ImageViewer from "@/components/ImageViewer";
-import { StyleSheet, View } from "react-native";
-const PlaceholderImage = require("../../assets/images/image1.jpg");
+import { router } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <View style={styles.imagecontainer}>
-        <ImageViewer imgSource={PlaceholderImage} width={220} height={300} />
-      </View>
-
+    <View style={styles.footerContainer}>
+      <Text>Welcome to To-Do App</Text>
       <View style={styles.footerContainer}>
-        <Button label="choose a photo" />
-        <Button label="Use this photo" />
+        <Button
+          label="Go to the To-Do Page"
+          onPress={() => router.push("/calendar")}
+        />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#5959afff",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingVertical: 36,
-  },
-  imagecontainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   footerContainer: {
-    marginBottom: 28,
+    position: "absolute",
+    top: "50%",
+    left: 0,
+    right: 0,
+    transform: [{ translateY: -26 }],
+    alignItems: "center",
+    gap: 12,
   },
 });

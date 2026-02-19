@@ -1,0 +1,6 @@
+{
+  "todos": [
+    { "id": 1, "title": "Buy groceries", "description": "Milk, Bread, Butter, Cheese", "completed": false },
+    { "id": 2, "title": "Study", "description": "Finish Expo Router section", "completed": true }
+  ]
+}
