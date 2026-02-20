@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
+import { useEffect } from "react";
 import {
     KeyboardAvoidingView,
     Modal,
@@ -23,9 +24,19 @@ type Props = {
   visible: boolean;
   onClose: () => void;
   onSubmit: (values: FormValues) => void;
+  initialValues?: Partial<FormValues>;
+  modalTitle?: string;
+  submitLabel?: string;
 };
 
-export default function AddTodo({ visible, onClose, onSubmit }: Props) {
+export default function AddTodo({
+  visible,
+  onClose,
+  onSubmit,
+  initialValues,
+  modalTitle = "Add New Todo",
+  submitLabel = "Add Todo",
+}: Props) {
   const {
     control,
     handleSubmit,
@@ -35,6 +46,15 @@ export default function AddTodo({ visible, onClose, onSubmit }: Props) {
     resolver: zodResolver(schema),
     defaultValues: { title: "", description: "" },
   });
+
+  useEffect(() => {
+    if (visible) {
+      reset({
+        title: initialValues?.title ?? "",
+        description: initialValues?.description ?? "",
+      });
+    }
+  }, [visible, initialValues, reset]);
 
   const submit = (values: FormValues) => {
     onSubmit(values);
@@ -56,7 +76,7 @@ export default function AddTodo({ visible, onClose, onSubmit }: Props) {
         style={styles.sheetWrap}
       >
         <View style={styles.sheet}>
-          <Text style={styles.title}>Add New Todo</Text>
+          <Text style={styles.title}>{modalTitle}</Text>
 
           <Text style={styles.label}>Title *</Text>
           <Controller
@@ -112,7 +132,7 @@ export default function AddTodo({ visible, onClose, onSubmit }: Props) {
               onPress={handleSubmit(submit)}
               disabled={isSubmitting}
             >
-              <Text style={styles.btnPrimaryText}>Add Todo</Text>
+              <Text style={styles.btnPrimaryText}>{submitLabel}</Text>
             </Pressable>
           </View>
         </View>
