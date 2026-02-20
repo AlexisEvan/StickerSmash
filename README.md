@@ -25,6 +25,16 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Home page
+<img width="355" height="746" alt="截屏2026-02-21 上午1 52 40" src="https://github.com/user-attachments/assets/9c765c92-c9ea-4bf6-b683-6d57b1678198" />
+
+## Calendar page
+<img width="354" height="738" alt="截屏2026-02-21 上午1 53 12" src="https://github.com/user-attachments/assets/5a2e3a94-9fc9-4eee-8ddb-930c6fa47d9d" />
+
+## Add new todo
+<img width="335" height="727" alt="截屏2026-02-21 上午1 53 45" src="https://github.com/user-attachments/assets/a4898c78-aa84-4bbe-8d81-8eeaaf81d268" />
+
+
 ## Get a fresh project
 
 When you're ready, run:
