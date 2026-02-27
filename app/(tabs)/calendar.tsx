@@ -3,9 +3,18 @@ import AddTodo from "@/components/addtodo";
 import TodoCard from "@/components/TodoCards";
 import type { Todo } from "@/types/todo";
 import { useState } from "react";
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
-const API_URL = "http://192.168.50.200:3001/todos";
+const USE_LAN_DEVICE = false;
+const LAN_IP = "192.168.50.200";
+const API_HOST = USE_LAN_DEVICE
+  ? LAN_IP
+  : (Platform.select({
+      ios: "localhost",
+      android: "10.0.2.2",
+      default: "localhost",
+    }) ?? "localhost");
+const API_URL = `http://${API_HOST}:3001/todos`;
 const TODOS_QUERY_KEY = ["todos"];
 
 type TodoValues = {
