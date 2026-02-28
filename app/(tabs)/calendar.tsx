@@ -1,9 +1,16 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import AddTodo from "@/components/addtodo";
-import TodoCard from "@/components/TodoCards";
+import AddTodo from "@/components/todo/addtodo";
+import TodoCard from "@/components/todo/todocards";
 import type { Todo } from "@/types/todo";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { FlatList, Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 const USE_LAN_DEVICE = false;
 const LAN_IP = "192.168.50.200";
