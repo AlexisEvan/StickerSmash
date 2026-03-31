@@ -1,15 +1,16 @@
+import type { TodoValues } from "@/features/calendar/models/todo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { useEffect } from "react";
 import {
-    KeyboardAvoidingView,
-    Modal,
-    Platform,
-    Pressable,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
 import { z } from "zod";
 
@@ -18,18 +19,18 @@ const schema = z.object({
   description: z.string().min(1, "Description is required"),
 });
 
-type FormValues = z.infer<typeof schema>;
+export type TodoFormValues = z.infer<typeof schema>;
 
 type Props = {
   visible: boolean;
   onClose: () => void;
-  onSubmit: (values: FormValues) => void;
-  initialValues?: Partial<FormValues>;
+  onSubmit: (values: TodoValues) => void;
+  initialValues?: Partial<TodoValues>;
   modalTitle?: string;
   submitLabel?: string;
 };
 
-export default function AddTodo({
+export default function AddTodoModal({
   visible,
   onClose,
   onSubmit,
@@ -42,7 +43,7 @@ export default function AddTodo({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({
+  } = useForm<TodoFormValues>({
     resolver: zodResolver(schema),
     defaultValues: { title: "", description: "" },
   });
@@ -56,7 +57,7 @@ export default function AddTodo({
     }
   }, [visible, initialValues, reset]);
 
-  const submit = (values: FormValues) => {
+  const submit = (values: TodoFormValues) => {
     onSubmit(values);
     reset();
     onClose();
