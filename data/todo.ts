@@ -1,4 +1,4 @@
-import { Todo } from "../types/todo";
+import { Todo } from "../features/calendar/models/todo";
 
 export const todos: Todo[] = [
   {

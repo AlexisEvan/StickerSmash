@@ -1,5 +1,6 @@
-import type { Todo } from "@/types/todo";
+import type { Todo } from "@/features/calendar/models/todo";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+
 type Props = {
   todo: Todo;
   onEdit: (todo: Todo) => void;

@@ -4,3 +4,5 @@ export type Todo = {
   description: string;
   completed: boolean;
 };
+
+export type TodoValues = Pick<Todo, "title" | "description">;
