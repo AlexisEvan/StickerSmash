@@ -9,7 +9,8 @@ export default function RootLayout() {
     <QueryClientProvider client={queryClient}>
       <StatusBar barStyle="light-content" />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(public)" options={{ headerShown: false }} />
+        <Stack.Screen name="(protected)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ title: "Not Found" }} />
       </Stack>
     </QueryClientProvider>
